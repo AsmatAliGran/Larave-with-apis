@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\CourseModel;
+use App\Models\Student;
+
+
 
 class HomeController extends Controller
 {
@@ -23,6 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $record = Student::get();
+
+        $CourseModel = CourseModel::get();
+
+
+        return view('home', compact('record', 'CourseModel'));
     }
 }
